@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/libs/reset.css" />
+    <link rel="stylesheet" href="./assets/libs/variables.css" />
+    <link rel="stylesheet" href="./assets/css/styleDiary.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Diary - My Memory</title>
+  </head>
+  <body>
+    <div class="diary__container">
+      <nav class="diary__nav">
+        <div class="nav__container">
+          <div class="nav__logo">
+            <svg
+              width="140"
+              height="40"
+              style="border-radius: 30px"
+              viewBox="0 0 140 40"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <text
+                x="0"
+                y="28"
+                font-size="32"
+                font-family="Poppins, sans-serif"
+                font-weight="700"
+                fill="#171100"
+                letter-spacing="1.5"
+              >
+                Lernen
+                <tspan fill="#FFB900">.</tspan>
+              </text>
+            </svg>
+          </div>
+          <ul class="nav__menu">
+            <li>
+              <a href="#"><i class="bx bx-book-heart"></i> Nhật ký</a>
+            </li>
+            <li>
+              <a href="#"><i class="bx bx-trash"></i> Thùng rác</a>
+            </li>
+            <li>
+              <a href="login.html"><i class="bx bx-log-out"></i> Thoát</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <header class="diary__header">
+        <h1 class="diary__title">Chào mừng bạn</h1>
+        <p class="diary__subtitle">Hôm nay bạn thấy thế nào?</p>
+      </header>
+
+      <div class="theme-picker__options">
+        <div
+          class="theme-dot"
+          data-color="45, 107, 92"
+          style="background: #2d6b5c"
+        ></div>
+        <div
+          class="theme-dot"
+          data-color="107, 68, 45"
+          style="background: #6b442d"
+        ></div>
+        <div
+          class="theme-dot"
+          data-color="45, 74, 107"
+          style="background: #2d4a6b"
+        ></div>
+        <div
+          class="theme-dot"
+          data-color="92, 45, 107"
+          style="background: #5c2d6b"
+        ></div>
+        <div
+          class="theme-dot"
+          data-color="51, 51, 51"
+          style="background: #333333"
+        ></div>
+      </div>
+
+      <div class="diary__input-area">
+        <textarea
+          id="diary-content"
+          placeholder="Gửi gắm nỗi niềm vào đây..."
+        ></textarea>
+        <div class="diary__actions">
+          <button class="diary__btn" id="save-btn">
+            <i class="bx bx-paper-plane"></i> Lưu tâm sự
+          </button>
+        </div>
+      </div>
+
+      <div class="diary__list" id="diary-list"></div>
+    </div>
+    <div id="edit-modal" class="modal">
+      <div class="modal__content">
+        <h2 class="modal__title">Chỉnh sửa tâm sự</h2>
+        <textarea id="edit-textarea"></textarea>
+        <div class="modal__actions">
+          <button class="modal__btn cancel" onclick="closeModal()">Hủy</button>
+          <button class="modal__btn save" id="update-btn">Cập nhật</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/diary.js"></script>
+  </body>
+</html>

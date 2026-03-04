@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="./assets/libs/reset.css" />
+
+    <!-- file root(variables) -->
+     <link rel="stylesheet" href="./assets/libs/variables.css">
+
+    <!-- embed font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- box icon -->
+    <link
+      href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+
+    <!-- style css -->
+    <link rel="stylesheet" href="./assets/css/styleLogin.css" />
+    <title>Đăng nhập</title>
+  </head>
+  <body>
+    <div class="login">
+      <div class="login__container">
+        <!-- user -->
+        <div class="login__avatar">123</div>
+        <div class="login__header">
+          <h2 class="login__title">Welcome back!</h2>
+          <p class="login__sub-title">please sign in to continue</p>
+        </div>
+        <!-- form -->
+        <form action="./diary.html" class="login__form">
+          <!-- email -->
+          <div class="login__group">
+            <!-- <i class="login__icon bx bx-user-circle"> </i> -->
+            <i class="login__icon fa-solid fa-user"></i>
+            <div class="input__box">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="login-input"
+                autocomplete="email"
+                placeholder=""
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+          </div>
+
+          <!-- password -->
+          <div class="login__group">
+            <!-- <i class="login__icon bx bx-lock"> </i> -->
+            <i class="login__icon fa-solid fa-lock"></i>
+            <div class="input__box">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="login-input"
+                autocomplete="current-password"
+                placeholder=""
+                required
+              />
+              <label for="password">Password</label>
+            </div>
+
+            <!-- button -->
+
+            <button type="button" class="login__toggle">
+              <i class="bx bx-eye"></i>
+            </button>
+          </div>
+
+          <!-- checkbox -->
+          <div class="login__options">
+            <div class="login__remember">
+              <input type="checkbox" id="remember" />
+              <label for="remember"> remember me </label>
+            </div>
+            <a href="" class="login__forgot">forgot password?</a>
+          </div>
+
+          <!-- login/signIn -->
+          <button type="submit" class="login__btn">sign in</button>
+
+          <!-- social login -->
+          <div class="login__divider">
+            <span>or continue with</span>
+          </div>
+          <div class="login__social">
+            <a href="" class="login__social-btn"
+              ><i class="fa-brands fa-google"></i
+            ></a>
+            <a href="" class="login__social-btn"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="" class="login__social-btn"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </div>
+          <p class="login__signup">
+            don't have an account?
+            <a href="">sign up</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- link javaScript -->
+    <script src="./assets/js/login.js"></script>
+    <script
+      src="https://kit.fontawesome.com/89ec7e6281.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

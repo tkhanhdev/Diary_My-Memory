@@ -1,0 +1,249 @@
+// // // // 1. Xử lý đổi màu
+// // // const themeDots = document.querySelectorAll('.theme-dot');
+
+// // // themeDots.forEach(dot => {
+// // //     dot.addEventListener('click', function() {
+// // //         const color = this.getAttribute('data-color');
+
+// // //         // Đổi biến CSS chính trong :root
+// // //         document.documentElement.style.setProperty('--primary-color', color);
+
+// // //         // Xử lý UI cho các chấm màu
+// // //         themeDots.forEach(d => d.classList.remove('active'));
+// // //         this.classList.add('active');
+
+// // //         // Lưu vào máy để lần sau mở ra vẫn còn màu này
+// // //         localStorage.setItem('selectedColor', color);
+// // //     });
+// // // });
+
+// // // // 2. Load màu đã lưu khi mở trang
+// // // window.addEventListener('DOMContentLoaded', () => {
+// // //     const savedColor = localStorage.getItem('selectedColor');
+// // //     if (savedColor) {
+// // //         document.documentElement.style.setProperty('--primary-color', savedColor);
+// // //         // Tự active cái chấm màu tương ứng
+// // //         const activeDot = document.querySelector(`.theme-dot[data-color="${savedColor}"]`);
+// // //         if (activeDot) activeDot.classList.add('active');
+// // //     }
+// // // });
+
+// // // // --- CHỨC NĂNG TRANG LOGIN ---
+// // // const loginBtn = document.querySelector(".login__btn");
+// // // if (loginBtn) {
+// // //   // Chỉ khi có nút Login (tức là đang ở trang login.html) thì mới chạy đống này
+// // //   console.log("Đang ở trang Login");
+// // //   // ... code login cũ của bạn ...
+// // // }
+
+// // // // --- CHỨC NĂNG TRANG DIARY (Đổi màu & Lưu bài) ---
+// // // const themeDots = document.querySelectorAll(".theme-dot");
+// // // if (themeDots.length > 0) {
+// // //   console.log("Đang ở trang Diary - Kích hoạt đổi màu");
+// // //   themeDots.forEach((dot) => {
+// // //     dot.addEventListener("click", function () {
+// // //       const color = this.getAttribute("data-color");
+// // //       document.documentElement.style.setProperty("--primary-color", color);
+// // //       themeDots.forEach((d) => d.classList.remove("active"));
+// // //       this.classList.add("active");
+// // //       localStorage.setItem("selectedColor", color);
+// // //     });
+// // //   });
+// // // }
+
+// // // const saveBtn = document.getElementById("save-btn");
+// // // if (saveBtn) {
+// // //   saveBtn.addEventListener("click", () => {
+// // //     console.log("Đã bấm nút lưu");
+// // //     // Code lưu bài của bạn...
+// // //   });
+// // // }
+
+// // document.addEventListener('DOMContentLoaded', () => {
+// //     // --- 1. XỬ LÝ ĐỔI MÀU ---
+// //     const themeDots = document.querySelectorAll('.theme-dot');
+    
+// //     themeDots.forEach(dot => {
+// //         dot.addEventListener('click', function() {
+// //             const rgbValue = this.getAttribute('data-color');
+// //             // Đổi biến gốc ở :root để mọi thứ (title, button, shadow) đổi theo
+// //             document.documentElement.style.setProperty('--primary-rgb', rgbValue);
+            
+// //             themeDots.forEach(d => d.classList.remove('active'));
+// //             this.classList.add('active');
+            
+// //             localStorage.setItem('userThemeRGB', rgbValue);
+// //         });
+// //     });
+
+// //     // Load lại màu đã lưu khi mở trang
+// //     const savedRGB = localStorage.getItem('userThemeRGB');
+// //     if (savedRGB) {
+// //         document.documentElement.style.setProperty('--primary-rgb', savedRGB);
+// //         const activeDot = document.querySelector(`[data-color="${savedRGB}"]`);
+// //         if (activeDot) {
+// //             themeDots.forEach(d => d.classList.remove('active'));
+// //             activeDot.classList.add('active');
+// //         }
+// //     }
+
+// //     // --- 2. XỬ LÝ LƯU NHẬT KÝ ---
+// //     const saveBtn = document.getElementById('save-btn');
+// //     const diaryInput = document.getElementById('diary-content');
+// //     const diaryList = document.getElementById('diary-list');
+
+// //     if (saveBtn) {
+// //         saveBtn.addEventListener('click', () => {
+// //             const content = diaryInput.value.trim();
+            
+// //             if (content) {
+// //                 // Tạo element mới
+// //                 const newItem = document.createElement('div');
+// //                 newItem.className = 'diary__item';
+// //                 newItem.innerHTML = `<p>${content}</p>`;
+                
+// //                 // Đưa lên đầu danh sách
+// //                 diaryList.prepend(newItem);
+                
+// //                 // Xóa trống ô nhập
+// //                 diaryInput.value = '';
+                
+// //                 // (Tùy chọn) Lưu vào localStorage nếu bạn muốn giữ lại sau khi F5
+// //                 saveToLocal(content);
+// //             }
+// //         });
+// //     }
+// // });
+
+// // // Hàm lưu nhật ký vào máy (Hacker nhàn nhã: f5 không mất bài)
+// // function saveToLocal(text) {
+// //     let posts = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+// //     posts.unshift(text);
+// //     localStorage.setItem('myDiaries', JSON.stringify(posts));
+// // }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     // 1. Khôi phục giao diện (Màu sắc & Bài viết cũ)
+//     loadTheme();
+//     renderDiaries();
+
+//     // 2. Sự kiện Đổi màu
+//     const themeDots = document.querySelectorAll('.theme-dot');
+//     themeDots.forEach(dot => {
+//         dot.addEventListener('click', function() {
+//             const rgb = this.getAttribute('data-color');
+//             document.documentElement.style.setProperty('--primary-rgb', rgb);
+//             themeDots.forEach(d => d.classList.remove('active'));
+//             this.classList.add('active');
+//             localStorage.setItem('userThemeRGB', rgb);
+//         });
+//     });
+
+//     // 3. Sự kiện Lưu bài (Create/Add)
+//     const saveBtn = document.getElementById('save-btn');
+//     if (saveBtn) {
+//         saveBtn.addEventListener('click', () => {
+//             const content = document.getElementById('diary-content').value.trim();
+//             if (content) {
+//                 const newDiary = {
+//                     id: Date.now(), // ID duy nhất để Put/Delete
+//                     content: content,
+//                     date: new Date().toLocaleString()
+//                 };
+//                 addDiary(newDiary);
+//                 document.getElementById('diary-content').value = '';
+//             }
+//         });
+//     }
+// });
+
+// // --- CÁC HÀM CRUD (THEO TƯ DUY BACKEND) ---
+
+// // READ: Lấy dữ liệu và hiển thị
+// function renderDiaries() {
+//     const list = document.getElementById('diary-list');
+//     const diaries = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+//     list.innerHTML = diaries.map(item => `
+//         <div class="diary__item" id="item-${item.id}">
+//             <div class="item__content">${item.content}</div>
+//             <div class="item__actions">
+//                 <button class="action-btn edit" onclick="editDiary(${item.id})"><i class='bx bx-edit-alt'></i></button>
+//                 <button class="action-btn delete" onclick="deleteDiary(${item.id})"><i class='bx bx-trash'></i></button>
+//             </div>
+//         </div>
+//     `).join('');
+// }
+
+// // CREATE: Thêm mới (Add/Post)
+// function addDiary(item) {
+//     let diaries = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+//     diaries.unshift(item);
+//     localStorage.setItem('myDiaries', JSON.stringify(diaries));
+//     renderDiaries();
+// }
+
+// // DELETE: Xóa bài (Delete)
+// window.deleteDiary = function(id) {
+//     if(confirm('Bạn có chắc muốn xóa tâm sự này?')) {
+//         let diaries = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+//         diaries = diaries.filter(d => d.id !== id);
+//         localStorage.setItem('myDiaries', JSON.stringify(diaries));
+//         renderDiaries();
+//     }
+// }
+
+// // UPDATE: Sửa bài (Put/Patch)
+// window.editDiary = function(id) {
+//     let diaries = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+//     const diary = diaries.find(d => d.id === id);
+//     const newContent = prompt('Sửa lại nỗi niềm của bạn:', diary.content);
+    
+//     if (newContent !== null && newContent.trim() !== "") {
+//         diary.content = newContent.trim();
+//         localStorage.setItem('myDiaries', JSON.stringify(diaries));
+//         renderDiaries();
+//     }
+// }
+
+// function loadTheme() {
+//     const savedRGB = localStorage.getItem('userThemeRGB');
+//     if (savedRGB) {
+//         document.documentElement.style.setProperty('--primary-rgb', savedRGB);
+//         const dot = document.querySelector(`[data-color="${savedRGB}"]`);
+//         if (dot) dot.classList.add('active');
+//     }
+// }
+// function renderDiaries() {
+//     const list = document.getElementById('diary-list');
+//     const diaries = JSON.parse(localStorage.getItem('myDiaries') || '[]');
+    
+//     list.innerHTML = diaries.map(item => `
+//         <div class="diary__item" id="item-${item.id}">
+//             <div class="item__content" id="content-${item.id}">${item.content}</div>
+            
+//             <div class="item__actions">
+//                 <button class="action-btn view" onclick="viewDetail(${item.id})" title="Xem chi tiết">
+//                     <i class='bx bx-expand-alt'></i>
+//                 </button>
+//                 <button class="action-btn edit" onclick="editDiary(${item.id})" title="Sửa bài">
+//                     <i class='bx bx-edit-alt'></i>
+//                 </button>
+//                 <button class="action-btn delete" onclick="deleteDiary(${item.id})" title="Xóa bài">
+//                     <i class='bx bx-trash'></i>
+//                 </button>
+//             </div>
+//         </div>
+//     `).join('');
+// }
+
+// // Hàm xem chi tiết (Hacker style: Bung lụa nội dung)
+// window.viewDetail = function(id) {
+//     const contentEl = document.getElementById(`content-${id}`);
+//     // Toggle (bật/tắt) chế độ hiển thị đầy đủ
+//     if (contentEl.style.display === "block") {
+//         contentEl.style.display = "-webkit-box"; // Quay lại 2 dòng
+//     } else {
+//         contentEl.style.display = "block"; // Hiện hết sạch chữ
+//     }
+// }
+
